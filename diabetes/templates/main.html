@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>My Machine Learning Project GUI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .main-title{text-align: center}
+
+        .select{
+            text-align: center;
+            padding: 6.9%;
+        }
+
+        .custom-select{
+            text-align: center;
+            width: 55%;
+            -moz-appearance: none;
+            border: none;
+            border: 1px solid #008000;
+        }
+
+        .custom-select option a.active{
+            background-color: rgb(157, 153, 153);
+            color: rgb(0, 0, 0);
+        }
+
+        .custom-select option a:hover:not(.active) {
+            background-color: rgb(157, 153, 153);
+            color: rgb(0, 0, 0);
+        }
+
+        .text{
+            margin-bottom: 9%;
+            margin-left: 5%;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+
+    </style>
+
+</head>
+<body>
+<div>
+    <h1 class="main-title">Diabetes Machine Learning Analysis</h1>
+    <hr>
+
+    <div class="select">
+        <select class="custom-select" id="sel">
+            <option value="0"><a class="active" href="main.html">Select Algorithm</a></option>
+            <option value="1"><a href="DataSet.html">Dataset Learning</a></option>
+            <option value="2"><a href="DataSetVisualization.html">Dataset Learning Visualization</a></option>
+            <option value="3"><a href="TestTrain.html">Test-Train Split</a></option>
+            <option value="4"><a href="KNearestNeighbours.html">K Nearest Neighbours</a></option>
+            <option value="5"><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></option>
+            <option value="6"><a href="SupportVectorMachines.html">Support Vector Machines</a></option>
+            <option value="7"><a href="LogisticRegression.html">Logistic Regression</a></option>
+            <option value="8"><a href="RandomForest.html">Random Forest</a></option>
+            <option value="9"><a href="DecisionTrees.html">Decision Trees</a></option>
+            <option value="10"><a href="DecisionTreeRegression.html">Decision Tree Regression</a></option>
+            <option value="11"><a href="SupportVectorRegression.html">Support Vector Regression</a></option>
+            <option value="12"><a href="LinearRegression.html">Linear Regression</a></option>
+        </select>
+        <br>
+        <script>
+                const sel = document.getElementById("sel")
+                sel.addEventListener("change",(e)=>{
+                    console.log(e.target.value === "0");
+                console.log(e.target.value);
+
+                if (e.target.value === "0"){
+                window.location.href = "main.html";
+                }
+                else if(e.target.value === "1"){
+                window.location.href = "DataSet.html";
+                }
+                else if(e.target.value === "2"){
+                window.location.href = "DataSetVisualization.html";
+                }
+                else if(e.target.value === "3"){
+                window.location.href = "TestTrain.html";
+                }
+                else if(e.target.value === "4"){
+                window.location.href = "KNearestNeighbours.html";
+                }
+                else if(e.target.value === "5"){
+                window.location.href = "NaiveBayesClassifier.html";
+                }
+                else if(e.target.value === "6"){
+                window.location.href = "SupportVectorMachines.html";
+                }
+                else if(e.target.value === "7"){
+                window.location.href = "LogisticRegression.html";
+                }
+                else if(e.target.value === "8"){
+                window.location.href = "RandomForest.html";
+                }
+                else if(e.target.value === "9"){
+                window.location.href = "DecisionTrees.html";
+                }
+                else if(e.target.value === "10"){
+                window.location.href = "DecisionTreeRegression.html";
+                }
+                else if(e.target.value === "11"){
+                window.location.href = "SupportVectorRegression.html";
+                }
+                else if(e.target.value === "12"){
+                window.location.href = "LinearRegression.html";
+                }
+
+                })
+
+        </script>
+
+
+    </div>
+</div>
+
+<div class="text">
+    <h5>Bu veri kümesi yaşı en az 21 olan Pima Kızılderililerine aittir. Veri kümesi 9 özniteliğe sahiptir. Bunlar; </h5>
+
+    <ul class="list">
+        <li>Pregnancies: Hamile kalma sayısı</li>
+        <li>Glucose: Oral glukoz tolerans testinde 2 saatlik plazma glukoz konsantrasyonu</li>
+        <li>BloodPressure: Diyastolik kan basıncı (mm Hg)</li>
+        <li>SkinThickness: Cilt kıvrım kalınlığı (mm)</li>
+        <li>Insulin: 2 saatlik serum insülini (mu U/ml)</li>
+        <li>BMI: Vücut kitle indeksi</li>
+        <li>DiabetesPedigreeFunction: Diyabet soyağacı işlevi</li>
+        <li>Age: Yaş</li>
+        <li>Outcome: Sınıf değişkeni (0 veya 1)</li>
+    </ul>
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+</footer>
+
+</body>
+</html>

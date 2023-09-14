@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset Learning Visualization</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--CSS özelliklerinin bulunduğu yer-->
+    <style>
+        body{background-color: #D7FFF4}
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin:auto;
+        }
+
+        .SideBySide img{
+            float:left;
+            padding:0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            margin-top: 232%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a class="active" href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a href="TestTrain.html">Test-Train Split</a></li>
+        <li><a href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="RandomForest.html">Random Forest</a></li>
+        <li><a href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%; padding:1px 16px; height:1000px; margin-bottom:100%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">Dataset Learning Visualization</h2>
+    <hr><br>
+
+    <p>Dağılım grafiği matrisi, aynı uzunluktaki n adet sayısal diziyle, ilişkili bir matristir. Böyle bir matrisin (i,j) hücresi Xi değişkenine karşı
+        Xj değişkeninin dağılım grafiğini gösterir. Burada, veri çerçevesinin sütunları için dağılım matrisini çizmek için Plotly Express fonksiyonu
+        px.scatter_matrix yöntemini kullanarak oluştururuz. Varsayılan olarak, tüm sütunlar dikkate alınır. Buradan aşağıda yer alan grafiği hamilelik
+        ve glukozun ilişkisi gibi durumlar olarak grafiğin üzerinden inceleyebiliriz.</p>
+    <br>
+
+    <img style="width: 100%; height: 60%;" src="images/DataSetVisualization/scatter_matrix.png" alt="Dağılım_Matrisi">
+    <hr><br>
+
+    <div class="SideBySide">
+        <img style="width: 55%; height: 50%;" src="images/DataSetVisualization/Korelasyon_matrix.png" alt="Korelasyon_Matrisi">
+        <br>
+
+        <p style="margin-top: 3%;">Isı haritası, renk kodlu bir matris olarak dikdörtgen verilerin bir çizimidir. Parametre olarak 2 boyutlu bir
+            veri kümesi alır. Bu veri kümesi bir ndarray'e zorlanabilir. Bu, verileri görselleştirmek için harika bir yoldur, çünkü zaman dahil
+            değişkenler arasındaki ilişkiyi gösterebilir. Örneğin, burada hamileliğin insüline oranıyla yoğunluğu dikkat çekicidir.</p>
+        <br><br><br><br><br><br><br><br><br><hr>
+    </div>
+
+    <p>Histogram, gruplandırılmış bir veri dağılımının sütun grafiğiyle gösterimidir. Diğer bir ifadeyle, tekrarlı sayılardan oluşan verilerin,
+        uygulanan işlemlerden sonra önce tabloya, tablodan yararlanarak grafiğe aktarılması, yani veri gruplarının grafiğinin dikdörtgen sütunlar
+        halinde gösterilmesidir. Burada da tüm özniteliklerin sonucu ve sayısına bağlı olarak görüntülenen histogram grafiklerini çizer.</p>
+    <br>
+
+    <img style="width: 70%; height: 50%; margin-left: 13%;" src="images/DataSetVisualization/histogram.png" alt="Histogram">
+    <hr><br>
+
+    <p>Pasta grafiği, bir veri serisi öğelerin boyutunu tüm öğelerin toplamına orantılı olarak gösterir. Bir pasta grafikteki veri noktaları tüm
+        pastanın yüzdesi olarak gösterilir. Bu veri setinde ise bulunan tüm verilerin nümerik veri olmasından dolayı diğer özniteliklerde diyabet
+        sonucu dışında o kadar güzel sonuçlar alınamıştır.</p>
+    <br>
+
+    <img style="width: 40%; height: 40%; margin-left: 6%" src="images/DataSetVisualization/Outcome_pastaGrafigi.png" alt="Outcome_pasta_grafiği">
+    <img style="width: 40%; height: 40%; margin-left: 3%" src="images/DataSetVisualization/Pregnancies_pastaGrafigi.png" alt="Hamilelik_pasta_grafiği">
+    <hr><br>
+
+    <div class="SideBySide">
+        <img style="width: 40%; height: 40%;" src="images/DataSetVisualization/DiabetesOutcome.png" alt="Diabetes_outcome">
+        <br>
+
+        <p style="margin-top: 5%;">Daha önce de elde ettiğimiz histogram grafikleri arasında yer alan diyabet hastalığının sonuçlarının bulunduğu
+            'Outcome' grafiği burada sns.countplot fonksiyonu yardımıyla tek olarak incelenebilmiştir. Buradan diyabet hastası olanların diyabet
+            hastası olmayanların yarısı kadar olduğu bilgisini edinebiliriz.</p>
+        <br><br><br><br><br><br><br><br><br><br><hr>
+    </div>
+
+    <p>Aşağıda hamilelik ve diyabet hastalığı arasındaki ilişkiyi gösteren grafikler mevcuttur. Solda bulunan grafikte diyabet hastası olanlar ile
+        diyabet hastası olmayanlar arasında hamilelik bazlı ilişkisi verilmektedir. Solda bulunan bu grafikte diyabet hastası olanların diyabet hastası
+        olmayanlardan farkı olarak hamilelik sayısının özellikle 12.5-13 diye tahmin edilen kısmından fazla hamilelik yaşayanlarda daha çok diyabet
+        hastalğının olduğunun gözlemlenebilmesidir. Sağda bulunan grafikte ise her hamilelik sayısı için diyabet hastası ve diyabet hastası olmayanların
+        sayısına dikkat çekilmektedir. Burada özellikle 14 defadan yukarı hamile kalanların direkt olarak diyabet hastası olduğunu
+        gözlemleyebilmekteyiz.</p>
+    <br>
+
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Hamilelik_Diyabet_İliskisi.png" alt="Hamilelik ve Diyabet İlişkisi">
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Hamilelik_Diyabet_İliskisi1.png" alt="Hamileliğe Göre Diyabet Olup Olmaması">
+    <hr><br>
+
+    <div class="SideBySide">
+        <img style="width: 60%; height: 60%;" src="images/DataSetVisualization/Hamilelik_Yas_İliskisi.png" alt="Hamilelik ve Yas İlişkisi">
+        <br>
+
+        <p style="margin-top: 3%;">Yan tarafta hamilelik ve yaş arasındaki ilişkiyi gösteren bir grafik yer almaktadır. Bu grafikle Pima Kızılderililerin
+            özellikle kaç yaşlarında doğum yağtığı sonucuna ulaşmak istenmiştir.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><hr>
+    </div>
+
+    <p>Aşağıda yaş ve diyabet hastalığı arasındaki ilişkiyi gösteren grafikler mevcuttur. Solda bulunan grafikte diyabet hastası olanlar ile diyabet
+        hastası olmayanlar arasında yaş bazlı ilişkisi verilmektedir. Solda bulunan bu grafikte hatta yaşın artması halinde bile özellikle 70 yaşından
+        daha fazla yaşamayı başarmış olan insanlarda diaybet hastalığı gözlemlenmemiştir. Sağda bulunan grafikte ise her yaş için diyabet hastası ve
+        diyabet hastası olmayanların sayısına dikkat çekilmektedir.</p>
+    <br>
+
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Yas_Diyabet_İliskisi.png" alt="Yaş ve Diaybet İlişkisi">
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Yas_Diyabet_İliskisi1.png" alt="Yaşa Göre Diyabet Olup Olmaması">
+    <hr><br>
+
+    <p>Aşağıda glukoz ve diyabet hastalığı arasındaki ilişkiyi gösteren grafikler mevcuttur. Solda bulunan grafikte diyabet hastası olanlar ile diyabet
+        hastası olmayanlar arasında glukoz bazlı ilişkisi verilmektedir. Solda bulunan bu grafikte tek dikkat çeken glukoz oranının yaklaşık olarak
+        70 'den düşük olduğu insanlarda hiç bir şekilde diyabet hastalığının görülmediği gözlemlenmektedir. Sağda bulunan grafikte ise her bir glukoz
+        oranı için diyabet hastası ve diyabet hastası olmayanların sayısına dikkat çekilmektedir. Burada gene özellikle glukoz oranının düşük olduğu
+        insanlarda diyabet hastalığı hiç görülmüyorken, glukoz oranının yüksek olduğu insanlarda ise diyabet hastalığının dikkat çekici bir şekilde
+        görüldüğünü gözlemleyebilmekteyiz.</p>
+    <br>
+
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Glukoz_Diyabet_İliskisi.png" alt="Glukoz ve Diaybet İlişkisi">
+    <img style="width: 49%; height: 45%;" src="images/DataSetVisualization/Glukoz_Diyabet_İliskisi1.png" alt="Glukoz Göre Diyabet Olup Olmaması">
+
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+</footer>
+
+</body>
+</html>

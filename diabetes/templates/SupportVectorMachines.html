@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Vector Machines</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .NavBar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .NavBar li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        .NavBar li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .NavBar li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .SideBySideRight {
+            width: 100%;
+            margin: auto;
+        }
+
+        .SideBySideRight img{
+            float: right;
+            padding: 0 10px 10px 0;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin:auto;
+        }
+
+        .SideBySide img{
+            float:left;
+            padding:0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="NavBar">
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a href="TestTrain.html">Test-Train Split</a></li>
+        <li><a href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a class="active" href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="RandomForest.html">Random Forest</a></li>
+        <li><a href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%; padding:1px 16px; height:1000px; margin-bottom:46%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">Support Vector Machines</h2>
+    <hr><br>
+
+    <p>SVM, lojistik regresyon ve karar ağaçları gibi diğer sınıflandırıcılara kıyasla çok yüksek doğruluk sunar. Doğrusal olmayan giriş alanlarını
+        işlemek için çekirdek numarasıyla bilinir. Yüz tespiti, izinsiz giriş tespiti, e-postaların, haber makalelerinin ve web sayfalarının
+        sınıflandırılması, genlerin sınıflandırılması ve el yazısı tanıma gibi çeşitli uygulamalarda kullanılabilir.</p>
+    <p>Genel olarak, Destek Vektör Makineleri bir sınıflandırma yaklaşımı olarak kabul edilir, ancak hem sınıflandırma hem de regresyon problemlerinde
+        kullanılabilir. Birden çok sürekli ve kategorik değişkeni kolayca işleyebilir. SVM, farklı sınıfları ayırmak için çok boyutlu uzayda bir
+        hiperdüzlem oluşturur. SVM, bir hatayı en aza indirmek için kullanılan yinelemeli bir şekilde en uygun hiper düzlemi oluşturur. DVM'nin
+        temel fikri, veri setini sınıflara en iyi şekilde bölen bir maksimum marjinal hiperdüzlem (MMH) bulmaktır.</p>
+    <p>-> Daha önce normalleştirerek böldüğümüz veri setini SVM algoritmasında kullanmak üzere bir model eğitebiliriz. Böylece veri kümesi üzerinde
+        tahminlerde bulunabiliriz.</p>
+    <p>-> Daha sonra bu modeli puanlayabilmek için test veri kümesi üzerinden tahmmin oluşturuldu ve aşağıdaki doğruluk skoru elde edildi.</p>
+    <ul>
+        <li>SVM Sınıflandırıcı Doğruluk Puanı: 0.7987</li>
+    </ul>
+    <br>
+
+    <h5>SVM Sınıflandırıcı Raporu:</h5>
+    <p>-> SVM sınıflandırıcı algoritmasında hakkında aşağıda doğruluk, kesinlik, skor vs bildiren bir rapor elde edilmiştir.</p>
+    <table style="width:70%">
+        <tr>
+            <th></th>
+            <th>precision</th>
+            <th>recall</th>
+            <th>f1-score</th>
+            <th>support</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0.83</td>
+            <td>0.90</td>
+            <td>0.86</td>
+            <td>107</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0.71</td>
+            <td>0.57</td>
+            <td>0.64</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td></td>
+            <td></td>
+            <td>0.80</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>macro avg</td>
+            <td>0.77</td>
+            <td>0.74</td>
+            <td>0.75</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>weighted avg</td>
+            <td>0.79</td>
+            <td>0.80</td>
+            <td>0.79</td>
+            <td>154</td>
+        </tr>
+    </table>
+    <br>
+
+    <div class="SideBySideRight">
+        <img style="width: 37%; height: 37%" src="images/SupportVectorMachines/SVM_Confusion_Matrix.png" alt="SVM Confusion_Matrix">
+        <br>
+
+        <p style="margin-top: 5%;">-> Model üzerinden makine öğrenimi alanında ve özellikle istatistiksel sınıflandırma problemlerinde,
+            hata matrisi olarak da bilinen bir Confusion Matrix (Karışıklık Matrisi) elde edildi.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <img style="width: 37%; height: 37%" src="images/SupportVectorMachines/SVM_ROC_Egrisi.png" alt="SVM ROC Egrisi">
+        <br>
+
+        <p style="margin-top: 4%;">-> ROC Eğrisi, sınıflandırma modeli performansını görsel olarak ölçmek için kullanılan bir diğer araçtır.
+            ROC Eğrisi, Alıcı Çalışma Özelliği Eğrisi anlamına gelir.</p>
+        <p>-> Burada sınıflandırma modelinin çeşitli sınıflandırma eşik seviyelerinde performansını gösteren bir çizim görmekteyiz.</p>
+        <p>-> Yanda yer alan ROC Eğrisinin roc_auc_score() fonksiyonu ile aşağıda yer alan doğruluk skoru elde edilmiştir</p>
+        <ul style="margin-left: 37%">
+            <li>SVM ROC AUC : 0.7358</li>
+        </ul>
+        <br><br><br><br><br><br><br>
+    </div>
+
+    <p>Doğrusal çekirdek(Linear Kernel) için başlatırken üç farklı C değeri ile sınıflandırıcı başlar. Her bir C değeri için doğruluk skoru elde
+        edilir. Ardından bir tahmin yürütüldü ve doğruluk skoru elde edildi. Elde edilen skorlardan sonra cross validated ROC için doğruluk skoru
+        elde edilmektedir.</p>
+        <ul style="list-style-type: circle">
+            <li>Linear kernel ve C=1.0 ile model doğruluk puanı: 0.7987</li>
+            <li>Linear kernel ve C=100.0 ile model doğruluk puanı: 0.7987</li>
+            <li>Linear kernel ve C=1000.0 ile model doğruluk puanı: 0.7987</li>
+            <li>Training-set accuracy score: 0.7573</li>
+            <li>Training set score: 0.7573</li>
+            <li>Test set score: 0.7987</li>
+            <li>Cross validated ROC AUC: 0.8304</li>
+        </ul>
+
+</div>
+
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+
+</footer>
+
+</body>
+
+
+</html>

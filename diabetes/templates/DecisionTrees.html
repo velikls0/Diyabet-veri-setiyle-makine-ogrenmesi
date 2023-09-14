@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Decision Trees</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .NavBar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .NavBar li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        .NavBar li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .NavBar li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .SideBySideRight {
+            width: 100%;
+            margin: auto;
+        }
+
+        .SideBySideRight img{
+            float: right;
+            padding: 0 10px 10px 0;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin: auto;
+        }
+
+        .SideBySide img{
+            float: left;
+            padding: 0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            margin-top: 160%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="NavBar">
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a href="TestTrain.html">Test-Train Split</a></li>
+        <li><a href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="RandomForest.html">Random Forest</a></li>
+        <li><a class="active" href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%; padding:1px 16px; height:1000px; margin-bottom:100%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">Decision Trees</h2>
+    <hr><br>
+
+    <p>Bir karar ağacı, bir iç düğümün bir özelliği (veya özelliği) temsil ettiği, dalın bir karar kuralını temsil ettiği ve her yaprak düğümün
+        sonucu temsil ettiği akış şeması benzeri bir ağaç yapısıdır.</p>
+    <p>Bir karar ağacındaki en üstteki düğüm, kök düğüm olarak bilinir. Öznitelik değerine göre bölümlemeyi öğrenir. Ağacı, özyinelemeli bölümleme
+        adı verilen özyinelemeli bir şekilde bölümlere ayırır. Bu akış şeması benzeri yapı, karar vermede size yardımcı olur. İnsan düzeyinde
+        düşünmeyi kolayca taklit eden bir akış şeması diyagramı gibi görselleştirme. Bu nedenle karar ağaçlarının anlaşılması ve yorumlanması
+        kolaydır.</p>
+    <p>Karar ağaçlarının zaman karmaşıklığı, verilen verilerdeki kayıtların ve niteliklerin sayısının bir fonksiyonudur. Karar ağacı, olasılık
+        dağılım varsayımlarına bağlı olmayan, dağılımdan bağımsız veya parametrik olmayan bir yöntemdir. Karar ağaçları, yüksek boyutlu verileri
+        iyi bir doğrulukla işleyebilir.</p>
+    <p>-> Daha önce normalleştirerek böldüğümüz veri setini Decision Tree(Karar Ağaçları) algoritmasında kullanmak üzere bir model eğitebiliriz.
+        Böylece veri kümesi üzerinde tahminlerde bulunabiliriz.</p>
+    <p>-> Daha sonra bu modeli puanlayabilmek için test veri kümesi üzerinden tahmmin oluşturuldu ve aşağıdaki doğruluk skoru elde edildi.</p>
+    <ul>
+        <li>Decision Tree(Karar Ağaçları) Sınıflandırıcı Doğruluk Puanı: 0.7532</li>
+    </ul>
+    <br>
+
+    <h5>Decision Tree(Karar Ağaçları) Sınıflandırıcı Raporu:</h5>
+    <p>-> Decision Tree(Karar Ağaçları) sınıflandırıcı algoritmasında hakkında aşağıda doğruluk, kesinlik, skor vs bildiren bir rapor elde
+        edilmiştir.</p>
+    <table style="width:70%">
+        <tr>
+            <th></th>
+            <th>precision</th>
+            <th>recall</th>
+            <th>f1-score</th>
+            <th>support</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0.84</td>
+            <td>0.79</td>
+            <td>0.82</td>
+            <td>107</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0.58</td>
+            <td>0.66</td>
+            <td>0.62</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td></td>
+            <td></td>
+            <td>0.75</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>macro avg</td>
+            <td>0.71</td>
+            <td>0.73</td>
+            <td>0.72</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>weighted avg</td>
+            <td>0.76</td>
+            <td>0.75</td>
+            <td>0.76</td>
+            <td>154</td>
+        </tr>
+    </table>
+    <br>
+
+    <div class="SideBySideRight">
+        <img style="width: 40%; height: 40%" src="images/DecisionTrees/DT_Confusion_Matrix.png" alt="DT Confusion_Matrix">
+        <br>
+
+        <p style="margin-top: 5%;">-> Model üzerinden makine öğrenimi alanında ve özellikle istatistiksel sınıflandırma problemlerinde,
+            hata matrisi olarak da bilinen bir Confusion Matrix (Karışıklık Matrisi) elde edildi.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <img style="width: 40%; height: 40%" src="images/DecisionTrees/DT_Roc_Egrisi.png" alt="DT Confusion_Matrix">
+        <br>
+
+        <p style="margin-top: 3%;">-> Bu algoritma için oluşturudğumuz model üzerinden roc_auc_score içe aktararak doğruluk sonucu elde
+            edilen bir ROC eğrisi(Alıcı Çalışma Karakteristiği) oluşturuldu.</p>
+        <p>-> ROC eğrisi, ikili sınıflandırıcılarda kullanılan yaygın bir araçtır. Turuncu çizgi rastgele bir sınıflandırıcıyı temsil
+            eder ve iyi bir sınıflandırıcı bu çizgiden mümkün oldukça uzak durur.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <p>-> Oluşturulan modellerin verdiği karar için her bir özelliğin ne kadar önemli olduğunu vurgulayacak bir kod parçası oluşturuldu ve
+        buradan elde edilen sonuçlar 0 ile 1 arasındaki sayılardır. 0 hiç kullanılmadığı, 1 ise mükemmel bir şekilde tahmin ediliyor
+        anlamına gelir. Oluşturulan özelliklerin toplamları her zaman 1’dir ve aşağıdaki gibi listelenmiştir.</p>
+    <ul>
+        <li>Feature importances:  [0.04741385 0.22814283 0.09975611 0.04738486 0.05318029 0.20582766 0.18292707 0.13536733]</li>
+    </ul>
+
+    <p>-> Ardından elde edilen sonuçlar önemlilik sırasına göre tersi alınarak oluştuurlan model üzerinden 'feature_importances_' kullanılarak
+        bir for döngüsünde taranarak elde edilmiştir ve aşağıdaki gibi sıralanmıştır.</p>
+    <ul>
+        <li>Glucose-22.81%</li>
+        <li>BMI-20.58%</li>
+        <li>DiabetesPedigreeFunction-18.29%</li>
+        <li>Age-13.54%</li>
+        <li>BloodPressure-9.98%</li>
+        <li>Insulin-5.32%</li>
+        <li>Pregnancies-4.74%</li>
+        <li>SkinThickness-4.74%</li>
+    </ul>
+
+    <div class="SideBySideRight">
+        <img style="width: 60%; height: 50%" src="images/DecisionTrees/DT_histogram.png" alt="DT Confusion_Matrix">
+        <br>
+
+        <p style="margin-top: 4%;">-> Yukarıda elde edilen özelliklerin önemlilik sırasına göre listelenmesinin ardından elde edilen sonuçlar
+            daha iyi anlaşılabilir olması için yann tarafta bulunudğu gibi bir histogram grafiği elde edilmiştir.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <img style="width: 40%; height: 40%" src="images/DecisionTrees/DT1.png" alt="DT Text">
+        <br>
+
+        <p style="margin-left: 45% ;margin-top: 10%;"><------------------------------------------- Decision Tree metin gösterimi</p>
+        <p style="margin-left: 45% ;margin-top: 2%;">-> Yanda görüldüğü gibi devam etmektedir.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <!--h5>Decision Tree metin gösterimi:</h5>
+    <img style="width: 40%; height: 50%" src="images/DecisionTrees/DT1.png" alt="DT Text">
+    <img style="width: 40%; height: 50%" src="images/DecisionTrees/DT4.png" alt="DT Text">
+    <img style="width: 40%; height: 50%; margin-left: 10%" src="images/DecisionTrees/DT2.png" alt="DT Text">
+    <img style="width: 40%; height: 50%" src="images/DecisionTrees/DT5.png" alt="DT Text">
+    <img style="width: 40%; height: 50%; margin-left: 10%" src="images/DecisionTrees/DT3.png" alt="DT Text">
+    <img style="width: 40%; height: 50%" src="images/DecisionTrees/DT6.png" alt="DT Text">
+    <img style="width: 40%; height: 50%; margin-left: 30%" src="images/DecisionTrees/DT7.png" alt="DT Text"-->
+
+    <p>-> Daha önce metin haline getirilen karar ağaçları aşağıdaki gibi görsel haline getirilmiştir.</p>
+
+    <img style="width: 100%; height: 60%" src="images/DecisionTrees/DT.png" alt="Decision Tree">
+
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+
+</footer>
+
+</body>
+
+
+</html>

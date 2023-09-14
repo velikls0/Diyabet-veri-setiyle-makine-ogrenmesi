@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Forest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .NavBar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .NavBar li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        .NavBar li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .NavBar li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .SideBySideRight {
+            width: 100%;
+            margin: auto;
+        }
+
+        .SideBySideRight img{
+            float: right;
+            padding: 0 10px 10px 0;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin: auto;
+        }
+
+        .SideBySide img{
+            float: left;
+            padding: 0 10px 10px 0;
+        }
+
+        .SideBySide table{
+            float: left;
+            padding: 0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            margin-top: 55%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="NavBar">
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a href="TestTrain.html">Test-Train Split</a></li>
+        <li><a href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a class="active" href="RandomForest.html">Random Forest</a></li>
+        <li><a href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;margin-bottom:15%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">Random Forest</h2>
+    <hr><br>
+
+    <p>Rastgele ormanlar, popüler bir denetimli makine öğrenimi algoritmasıdır. Etiketli bir hedef değişkenin olduğu denetimli makine öğrenimi içindir.
+        Regresyon (sayısal hedef değişken) ve sınıflandırma (kategorik hedef değişken) problemlerini çözmek için kullanılabilir. Bir topluluk yöntemidir,
+        yani diğer modellerden tahminleri birleştirir. Topluluktaki daha küçük modellerin her biri bir karar ağacıdır.</p>
+    <p>Rastgele bir orman sınıflandırmasında, verilerin ve özelliklerin farklı rasgele alt kümeleri kullanılarak çoklu karar ağaçları oluşturulur. Her
+        karar ağacı, verilerin nasıl sınıflandırılacağına ilişkin görüşünü sunan bir uzman gibidir. Tahminler, her karar ağacı için tahmin hesaplanarak
+        ve ardından en popüler sonuç alınarak yapılır. Regresyon için, tahminler bunun yerine bir ortalama alma tekniği kullanır.</p>
+    <p>-> Daha önce normalleştirerek böldüğümüz veri setini Random Forest(Rastgele Orman) algoritmasında kullanmak üzere bir model eğitebiliriz.
+        Böylece veri kümesi üzerinde tahminlerde bulunabiliriz.</p>
+    <p>-> Daha sonra bu modeli puanlayabilmek için test veri kümesi üzerinden tahmmin oluşturuldu ve aşağıdaki doğruluk skoru elde edildi.</p>
+    <ul>
+        <li>Random Forest(Rastgele Orman) Sınıflandırıcı Doğruluk Puanı: 0.8181</li>
+    </ul>
+    <br>
+
+    <h5>Random Forest(Rastgele Orman) Sınıflandırıcı Raporu:</h5>
+    <p>-> Random Forest(Rastgele Orman) sınıflandırıcı algoritmasında hakkında aşağıda doğruluk, kesinlik, skor vs bildiren bir rapor elde edilmiştir.</p>
+    <table style="width:70%">
+        <tr>
+            <th></th>
+            <th>precision</th>
+            <th>recall</th>
+            <th>f1-score</th>
+            <th>support</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0.86</td>
+            <td>0.89</td>
+            <td>0.87</td>
+            <td>107</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0.72</td>
+            <td>0.66</td>
+            <td>0.69</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td></td>
+            <td></td>
+            <td>0.82</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>macro avg</td>
+            <td>0.79</td>
+            <td>0.77</td>
+            <td>0.78</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>weighted avg</td>
+            <td>0.81</td>
+            <td>0.82</td>
+            <td>0.82</td>
+            <td>154</td>
+        </tr>
+    </table>
+    <br>
+
+    <div class="SideBySideRight">
+        <img style="width: 40%; height: 40%" src="images/RandomForest/RF_Confusion_Matrix.png" alt="SVM Confusion_Matrix">
+        <br>
+
+        <p style="margin-top: 5%;">-> Model üzerinden makine öğrenimi alanında ve özellikle istatistiksel sınıflandırma problemlerinde,
+            hata matrisi olarak da bilinen bir Confusion Matrix (Karışıklık Matrisi) elde edildi.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <table style="width:38%">
+            <tr>
+                <td>The importance of feature Pregnancies is % 8.29</td>
+            </tr>
+            <tr>
+                <td>The importance of feature Glucose is % 24.06</td>
+            </tr>
+            <tr>
+                <td>The importance of feature BloodPressure is % 8.41</td>
+            </tr>
+            <tr>
+                <td>The importance of feature SkinThickness is % 7.42</td>
+            </tr>
+            <tr>
+                <td>The importance of feature Insulin is % 7.38</td>
+            </tr>
+            <tr>
+                <td>The importance of feature BMI is % 15.35</td>
+            </tr>
+            <tr>
+                <td>The importance of feature DiabetesPedigreeFunction is % 12.93</td>
+            </tr>
+            <tr>
+                <td>The importance of feature Age is % 14.28</td>
+            </tr>
+        </table>
+        <br>
+
+        <p>-> Veri setindeki her bir özelliğin tahmin gücünü ortaya çıkartarak önemli özellikleri göz önüne serebiliriz. Burada da yapılan en yüksek
+            tahmin gücünü bularak en çok neyin etkileyebileceği ve aynı zamanda bu hastalığa etkileyebilecek dikkat edilmesi gereken özellikler göz
+            önüne serilebilir hale getirilmesi amaçlanmıştır. Burada elde edilen sonuçlarda ise en yüksek tahmin gücünün %25.83 ile glukozun olduğunu
+            ortaya koymuş olduk.</p>
+        <br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <img style="width: 60%; height: 50%" src="images/RandomForest/Variable_Importances.png" alt="Variable Importances">
+        <br>
+
+        <p style="margin-top: 4%">-> Yukarıda elde edilen tüm sayısal sonuçlar yandaki gibi görselleştirilerek daha anlaşılabilir ve yorumlanabilir
+            olması amaçlanmıştır.</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <p>-> RandomizedSearchCV ile hiperparametre başına bir aralık içindeki parametreleri rastgele arayacak olan Scikit-Learn kullanıldı. Buradan
+        ormandaki karar ağaçların sayısını rastgele bir şekilde taramaktadır. Aşağıda elde edilen sonuçlar gösterilmiştir. Random olduğu için
+        sonuçlar değişiklik gösterebilmektedir.</p>
+    <ul>
+        <li>Best hyperparameters: {'max_depth': 7, 'n_estimators': 224}</li>
+    </ul>
+
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test-Train Split</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .NavBar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .NavBar li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        .NavBar li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .NavBar li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin:auto;
+        }
+
+        .SideBySide img{
+            float:left;
+            padding:0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="NavBar">
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a class="active" href="TestTrain.html">Test-Train Split</a></li>
+        <li><a href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="RandomForest.html">Random Forest</a></li>
+        <li><a href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%; padding:1px 16px; height:1000px; margin-bottom:15%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">Test-Train Split</h2>
+    <hr><br>
+
+    <p>Bu zamana kadar yapılanlar veri setini anlama ve öğrenmeye dayalıydı. Bundan sonra veri seti üzerinden yeni modeller oluşturarak doğruluk skorları
+        tarzı birimler elde edilmelidir. Bunları başlatabilmek için öncelikle hangi algoritmaları ve modelleri kullanılabileceğinin analizinin yapılması
+        gerekmektedir. Tüm bu analizler yapıldıktan sonra öncelikle veri setinin ayrıştırılıp test edilmesi, modellerin iyileştirilmesi gibi süreçlerden
+        geçmesine ihtiyaç duyulmaktadır.</p>
+    <br>
+
+    <div class="SideBySide">
+        <img src="images/TestTrain/MachineLearning.png">
+        <br>
+
+        <p style="margin-top: 1%;">Yanda makine öğrenmesinde öğrenme çeşitleriyle beraber kullanılan algoritmalar bulunmaktadır. Bu algoritmalar veri
+            setinin uygunluğuna göre makine öğrenmesi çeşitlerinden seçilerek kullanılır. Kendi diyabet veri setimize bakarsak son sütunda yer alan
+            sonuç sütunundan dolayı bizim kullanacağımız makine öğrenmesi çeşidi Supervised Learning(Gözetimli öğrenme)'dir.</p>
+        <p>Bu projede Gözetimli öğrenme çeşitlerinden sınıflandırma(Classification) ve 3 regresyon(Regression) algoritmaları kullanılmıştır. Fakat
+            bu algortimaları kullanarak model oluşturmak için veri setini yatay olarak train ve test veri setleri olarak bölmemiz gerekmektedir.</p>
+        <br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <h5>Train Veri Seti</h5>
+    <p>Train veri seti üzerinde temel modelleme denemeleri yapılarak en doğru makine öğrenmesi algoritması seçilmeye çalışılır. Bu veri seti üzerinden
+        en fazla örneklem alınan gözlemlerden (rows) oluşur.</p>
+
+    <h5>Validation  Veri Seti</h5>
+    <p>Validation bölümü train veri seti içinden seçilir. Train veri seti üzerinde doğru model seçimi yapılarak algoritma belirlenir. Validation
+        bölümünde ise uygulanan model iyileştirilmeye çalışılır. Bunun için hiper parametrik (hyperparameter tuning) uygulamalar denenerek en optimum
+        katsayılar/ağırlıklar bulunmaya çalışılır. Özellikle çok büyük veri setleri üzerinde sürekli Train datası üzerinden çalışılamayacağı için
+        küçük bir bölüm alınarak validation olarak tanımlanır.</p>
+
+    <h5>Test Veri Seti</h5>
+    <p>İçinde Validation datasının yer aldığı Train veri setinden kalan bölüme Test veri seti diyebiliriz. Bu bölümde tahminler ile gerçek veriler
+        karşılaştırılır.</p>
+    <br>
+
+    <p>Bu veri seti 'Outcome' sütununda X olmak üzere diğer kalan sütunlar içinde Y olmak üzere ikiye bölünmüştür. Veri seti, %80'i test ve %20'si
+        train olmak üzere bölünmüştür.</p>
+    <p>Train bölümünde X_train ve y_train bölümlerinin satır ve sütun sayıları shape() fonksiyonuyla yazdırılmıştır. Buna göre;</p>
+    <ul>
+        <li>X_train: (614, 8)</li>
+        <li>y_train: (614,)</li>
+    </ul>
+    <p>Test bölümünde X_test ve y_test bölümlerinin satır ve sütun sayıları shape() fonksiyonuyla yazdırılmıştır. Buna göre;</p>
+    <ul>
+        <li>X_test: (154, 8)</li>
+        <li>y_test: (154,)</li>
+    </ul>
+    <!--p>train: (614, 8), (614,)</p>
+    <p>test: (154, 8), (154,)</p-->
+
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+</footer>
+
+</body>
+</html>

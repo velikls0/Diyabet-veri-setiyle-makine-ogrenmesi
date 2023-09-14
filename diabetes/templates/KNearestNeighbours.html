@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>K Nearest Neighbours</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{background-color: #D7FFF4}
+
+        .NavBar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 21%;
+            background-color: #b5ffea;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .NavBar li a {
+            text-align: center;
+            display: block;
+            color: #000;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        .NavBar li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .NavBar li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        table, th, td {
+            border-style: none;
+            border-collapse: collapse;
+        }
+
+        .SideBySide {
+            width: 100%;
+            margin:auto;
+        }
+
+        .SideBySide img{
+            float:left;
+            padding:0 10px 10px 0;
+        }
+
+        .SideBySideRight {
+            width: 100%;
+            margin:auto;
+        }
+
+        .SideBySideRight img{
+            float:right;
+            padding:0 10px 10px 0;
+        }
+
+        .myinformation{
+            width: 100%;
+            height: 100%;
+            margin-top: 138%;
+            padding-bottom: 1%;
+            padding-left: 84%;
+            background-color: #eaeaea
+        }
+
+        .myname{
+            padding-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="NavBar">
+    <ul>
+        <li><a href="main.html">Main Page</a></li>
+        <li><a href="DataSet.html">Dataset Learning</a></li>
+        <li><a href="DataSetVisualization.html">Dataset Learning Visualization</a></li>
+        <li><a href="TestTrain.html">Test-Train Split</a></li>
+        <li><a class="active" href="KNearestNeighbours.html">K Nearest Neighbours</a></li>
+        <li><a href="NaiveBayesClassifier.html">Naive Bayes Classifier</a></li>
+        <li><a href="SupportVectorMachines.html">Support Vector Machines</a></li>
+        <li><a href="LogisticRegression.html">Logistic Regression</a></li>
+        <li><a href="RandomForest.html">Random Forest</a></li>
+        <li><a href="DecisionTrees.html">Decision Trees</a></li>
+        <li><a href="DecisionTreeRegression.html">Decision Tree Regression</a></li>
+        <li><a href="SupportVectorRegression.html">Support Vector Regression</a></li>
+        <li><a href="LinearRegression.html">Linear Regression</a></li>
+
+        <footer style="text-align: center; margin-top: 2%;">
+            <iframe src="https://free.timeanddate.com/clock/i7hdqgbf/n2238/tltr28/fn6/fs16/fc9ff/tc000/ftb/pa8/tt0/tw1/th1/tb4"
+                    frameborder=0 width=75% height=20%></iframe>
+        </footer>
+    </ul>
+
+</div>
+
+<div style="margin-left:25%; padding:1px 16px; height:1000px; margin-bottom:100%">
+    <h1 style="text-align: center">Diabetes Machine Learning Analysis</h1>
+    <h2 style="text-align: center">K Nearest Neighbours</h2>
+    <hr><br>
+
+    <p>kNN algoritması, çoğunluk sınıf etiketinin, özellik uzayındaki en yakın 'k' komşuları arasında yeni bir veri noktasının sınıf etiketini
+        belirlediği bir oylama sistemi olarak düşünülebilir. Daha iyi anlayabilmek için bir örnek vermek gerekirse, mesela birkaç yüz kişinin yaşadığı
+        küçük bir köy düşünün ve hangi siyasi partiye oy vereceğinize karar vermelisiniz. Bunun için en yakın komşunuza gidip hangi siyasi partiyi
+        desteklediğini sorabilirsiniz. En yakın 'k' komşularınızın çoğunluğu A tarafını destekliyorsa, o zaman büyük olasılıkla A partisine de oy
+        verirsiniz. Bu, kNN algoritmasının çalışma şekline benzer; k en yakın komşusu.</p>
+    <p>-> Daha önce normalleştirerek böldüğümüz veri setini K Nearest Neighbours(KNN-K En Yakın Komşu) algoritmasını kullanmak üzere bir model eğitebiliriz.
+        Böylece veri kümesi üzerinde tahminler yapabiliriz.</p>
+    <p>-> Model eğitildikten sonra elimizde bulunan k'nin 1 olduğu bir knn modeli ile aşağıdaki eğitim ve test doğruluk sonuçları elde edilmiştir.</p>
+    <ul>
+        <li>Eğitim doğruluk puanı: 1.000</li>
+        <li>Test doğruluk puanı: 0.721</li>
+    </ul>
+    <p>-> k'nin 24 olduğu bir knn modeli ile aşağıdaki eğitim ve test doğruluk sonuçları elde edilmiştir.</p>
+    <ul>
+        <li>Eğitim doğruluk puanı: 0.772</li>
+        <li>Test doğruluk puanı: 0.818</li>
+    </ul>
+    <p>-> Daha sonra bu modeli puanlayabilmek için test veri kümesi üzerinden tahmmin oluşturuldu ve aşağıdaki doğruluk skoru elde edildi.</p>
+    <ul>
+        <li>K=1 KNN Sınıflandırıcı Doğruluk Puanı: 0.7207</li>
+        <li>K=24 KNN Sınıflandırıcı Doğruluk Puanı: 0.8181</li>
+    </ul>
+    <br>
+
+    <h5>K=1 KNN Sınıflandırıcı Raporu:</h5>
+    <p>-> KNN sınıflandırıcı algoritmasında k'nin 1 olduğu ve hakkında aşağıda doğruluk, kesinlik, skor vs bildiren bir rapor elde edilmiştir.</p>
+    <table style="width:70%">
+        <tr>
+            <th></th>
+            <th>precision</th>
+            <th>recall</th>
+            <th>f1-score</th>
+            <th>support</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0.81</td>
+            <td>0.79</td>
+            <td>0.80</td>
+            <td>107</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0.54</td>
+            <td>0.57</td>
+            <td>0.56</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td></td>
+            <td></td>
+            <td>0.72</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>macro avg</td>
+            <td>0.67</td>
+            <td>0.68</td>
+            <td>0.68</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>weighted avg</td>
+            <td>0.73</td>
+            <td>0.72</td>
+            <td>0.72</td>
+            <td>154</td>
+        </tr>
+    </table>
+    <br>
+
+    <h5>K=24 KNN Sınıflandırıcı Raporu:</h5>
+    <p>-> KNN sınıflandırıcı algoritmasında k'nin 24 olduğu ve hakkında aşağıda doğruluk, kesinlik, skor vs bildiren bir rapor elde edilmiştir.</p>
+    <table style="width:70%">
+        <tr>
+            <th></th>
+            <th>precision</th>
+            <th>recall</th>
+            <th>f1-score</th>
+            <th>support</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0.84</td>
+            <td>0.92</td>
+            <td>0.88</td>
+            <td>107</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0.76</td>
+            <td>0.60</td>
+            <td>0.67</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td></td>
+            <td></td>
+            <td>0.82</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>macro avg</td>
+            <td>0.80</td>
+            <td>0.76</td>
+            <td>0.77</td>
+            <td>154</td>
+        </tr>
+        <tr>
+            <td>weighted avg</td>
+            <td>0.81</td>
+            <td>0.82</td>
+            <td>0.81</td>
+            <td>154</td>
+        </tr>
+    </table>
+    <br>
+
+    <p>-> Model üzerinden makine öğrenimi alanında ve özellikle istatistiksel sınıflandırma problemlerinde, hata matrisi olarak da bilinen bir
+        Confusion Matrix (Karışıklık Matrisi) elde edildi.</p>
+    <br>
+
+    <img style="width: 37%; height: 37%; margin-left: 8%" src="images/KNearestNeighbours/KNN1_Confusion_Matrix.png" alt="KNN1_Confusion_Matrix">
+    <img style="width: 37%; height: 37%; margin-left: 3%" src="images/KNearestNeighbours/KNN24_Confusion_Matrix.png" alt="KNN24_Confusion_Matrix">
+    <br><br><br>
+
+    <div class="SideBySide">
+        <img style="width: 50%; height: 50%;" src="images/KNearestNeighbours/Elbow_Method.jpg" alt="Elbow_Mehod">
+        <br>
+
+        <p style="margin-top: 3%;">-> Başta oluşturulan modelden bağımsız olarak modelin K değerlerinin hata oranını veren yandaki grafik
+            elde edildi.</p>
+        <p style="margin-top: 1%;">-> Karışıklık matrisi, bir sınıflandırma modelinin gerçek performansını temsil eden parametrelerden biridir
+            ve sistemin performansını doğru bir şekilde gözlemlemek için kullanılabilir. KNN için, modeli eğitmenin ilk adımı "K" değerini
+            seçmektir. Yandaki grafikten K=26-27 değerleri, nispeten daha düşük bir hata oranı gösterir. Yani bu model için bunlar seçilebilir.</p>
+        <br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySideRight">
+        <img style="width: 45%; height: 45%;" src="images/KNearestNeighbours/Cross_Validation.png" alt="Cross_Validation">
+        <br>
+
+        <p style="margin-top: 3%;">-> K’nin en iyi değerini almak için K’nin doğruluk skorlarının bulunduğu bir grafik elde edildi buradan
+            doğruluk skoru en yüksek olanlardan en küçük olanın alınması tercih ediliyor. Çünkü, daha yüksek K değerleri kullanıldığında,
+            modelin orijinalden daha uzak olan daha fazla veri noktası kullanmasına sebep oluyor.</p>
+        <p style="margin-top: 1%;">-> Ardından en iyi K değerini bulabilmek için «Grid Search CV» kütüphanesini kullanarak bir model üzerinden
+            en iyi ölçüm modeli, p değeri ve en iyi K değerleri elde edildi.</p>
+        <br>
+
+        <table style="width:18%; margin-left: 10%">
+            <tr>
+                <td>En iyi metrik:</td>
+                <td>euclidean</td>
+            </tr>
+            <tr>
+                <td>En iyi p:</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>en iyi n_neighbors:</td>
+                <td>24</td>
+            </tr>
+        </table>
+        <br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="SideBySide">
+        <img style="width: 70%; height: 50%;" src="images/KNearestNeighbours/K_DeğerlerininEtkisi.png" alt="K Değerlerinin Etkisi">
+        <br>
+
+        <p style="margin-top: 4%;">-> K değerlerinin etkisini görmek için k=1 ve k=24 ile test setini ve tahmin edilen değerleri yandaki gibi
+            görselleştirildi.</p>
+        <br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <p>-> Dağılım grafikleri, değişkenler arasındaki ilişkiyi gözlemlemek için kullanılır ve aralarındaki ilişkiyi göstermek için noktalar
+        kullanır. Matplotlib kitaplığındaki scatter() yöntemi, bir dağılım grafiği çizmek için kullanılır. Dağılım grafikleri, değişkenler
+        arasındaki ilişkiyi ve birindeki değişikliğin diğerini nasıl etkilediğini göstermek için yaygın olarak kullanılır.</p>
+    <p>-> Aşağıda da x ve y verilerinin hue yoluyla seçilen diaybet hastalığı sonuçlarının karşılaştırılmasına yer verilmiştir. Böylece
+        veriler arasınnda diyabet hastası olanlar için farklı etmenler var mı varsa nelerdir gibi soruların cevapları rahatlıkla alınabilir.</p>
+
+    <img style="width: 33%; height: 40%;" src="images/KNearestNeighbours/Glucose-Pregnancies.png" alt="Glucose/Pregnancies">
+    <img style="width: 33%; height: 40%;" src="images/KNearestNeighbours/Insulin-Glucose.png" alt="Insulin/Glucose">
+    <img style="width: 33%; height: 40%;" src="images/KNearestNeighbours/SkinThickness-BloodPressure.png" alt="SkinThickness/BloodPressure">
+
+
+</div>
+
+<footer class="myinformation">
+    <h4 class="myname">Veli KÖSEOĞLU 190309015</h4>
+
+</footer>
+
+</body>
+</html>
